@@ -3,7 +3,6 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap
 
-vim.api.nvim_set_keymap('n', '<CR>', '<cmd>FineCmdline<CR>', {noremap = true})
 -- General keymaps
 --keymap.set("i", "jk", "<ESC>") -- exit insert mode with jk 
 --keymap.set("i", "ii", "<ESC>") -- exit insert mode with ii

@@ -29,7 +29,6 @@ gtk-4.0
 kde.org
 kdeconnect
 kdedefaults
-kitty
 lazygit
 libaccounts-glib
 obsidian
@@ -111,3 +110,4 @@ trashrc
 user-dirs.dirs
 user-dirs.locale
 xdg-desktop-portal-kderc
+nushell/history.txt
