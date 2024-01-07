@@ -4,8 +4,6 @@ vim.opt.relativenumber = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
-vim.opt.wrap = false
-
 vim.opt.virtualedit = "block"
 
 vim.opt.expandtab = true
@@ -30,9 +28,10 @@ vim.opt.termguicolors = true
 vim.opt.scrolloff = 999
 
 vim.g.mapleader = " "
+vim.g.maplocalleader = ","
 
 -- Markdown specific settings
-vim.opt.wrap = false -- Wrap text
+vim.opt.wrap = true -- Wrap text
 vim.opt.breakindent = true -- Match indent on line break
 vim.opt.linebreak = true -- Line break on whole words
 vim.opt.spelllang = 'en_us'
