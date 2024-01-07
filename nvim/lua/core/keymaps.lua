@@ -3,12 +3,17 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap
 
+vim.api.nvim_set_keymap('n', '<CR>', '<cmd>FineCmdline<CR>', {noremap = true})
 -- General keymaps
 --keymap.set("i", "jk", "<ESC>") -- exit insert mode with jk 
 --keymap.set("i", "ii", "<ESC>") -- exit insert mode with ii
 keymap.set("n", "<leader>wq", ":wq<CR>") -- save and quit
 keymap.set("n", "<leader>qq", ":q!<CR>") -- quit without saving
 keymap.set("n", "<leader>ww", ":w<CR>") -- save
+
+-- Norg modules
+keymap.set('n', '<localleader>x', ':Neorg exec cursor<CR>', {silent = true}) -- just this block or blocks within heading section
+keymap.set('n', '<localleader>X', ':Neorg exec current-file<CR>', {silent = true}) -- whole file
 
 -- Zen-mode
 keymap.set("n", "<leader>zz", ":ZenMode<CR>")

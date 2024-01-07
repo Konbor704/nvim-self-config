@@ -9,6 +9,7 @@ return {
     -- background = {
     --   dark = "wave",
     -- },
+    transparent = true,
   },
   config = function(_, opts)
     require('kanagawa').setup(opts) -- Replace this with your favorite colorscheme

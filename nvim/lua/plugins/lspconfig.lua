@@ -25,6 +25,7 @@ return {
             -- Update this list to the language servers you need installed
             ensure_installed = {
                 "rust_analyzer",
+                "julials",
                 -- "bashls", # requires npm to be installed
                 -- "cssls", # requires npm to be installed
                 -- "html", # requires npm to be installed
@@ -33,6 +34,7 @@ return {
                 -- "jsonls", # requires npm to be installed
                 "marksman",
                 "zls",
+                "pylsp",
                 -- "tsserver", # requires npm to be installed
                 -- "yamlls", # requires npm to be installed
             }
@@ -71,5 +73,6 @@ return {
             },
         }
         lspconfig.zls.setup({})
+        lspconfig.pylsp.setup({})
     end
 }
