@@ -34,7 +34,7 @@ vim.g.maplocalleader = ","
 vim.opt.wrap = true -- Wrap text
 vim.opt.breakindent = true -- Match indent on line break
 vim.opt.linebreak = true -- Line break on whole words
-vim.opt.spelllang = 'en_us'
+vim.opt.spelllang = {'pl', 'en_gb'}
 vim.opt.spell = true
 
 -- Consider - as part of keyword
