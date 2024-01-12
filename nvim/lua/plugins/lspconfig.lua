@@ -24,7 +24,6 @@ return {
         require('mason-lspconfig').setup({
             -- Update this list to the language servers you need installed
             ensure_installed = {
-                "rust_analyzer",
                 "julials",
                 -- "bashls", # requires npm to be installed
                 -- "cssls", # requires npm to be installed
@@ -67,11 +66,11 @@ return {
                 },
             },
         }
-        lspconfig.rust_analyzer.setup {
-            settings = {
-                ["rust-analyzer"] = {},
-            },
-        }
+        -- lspconfig.rust_analyzer.setup {
+        --     settings = {
+        --         ["rust-analyzer"] = {},
+        --     },
+        -- }
         lspconfig.zls.setup({})
         lspconfig.pylsp.setup({})
     end
