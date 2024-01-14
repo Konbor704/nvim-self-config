@@ -14,3 +14,5 @@ end, { silent = true, buffer = bufnr })
 vim.keymap.set("n", "<leader> hv", function()
   vim.cmd.RustLsp({ "hover", "range" })
 end, { silent = true, buffer = bufnr })
+
+vim.keymap.set("n", "gh", "<CMD>RustLsp hover range<CR>")
