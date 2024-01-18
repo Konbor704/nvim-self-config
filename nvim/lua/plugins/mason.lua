@@ -35,6 +35,7 @@ return {
       ensure_installed = {
         "codelldb",
         "stylua", -- lua formatter
+        "cpptools",
       },
     })
   end,

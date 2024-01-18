@@ -108,25 +108,39 @@ return {
       require("dapui").close()
     end
 
-    dap.adapters.gdb = {
-      type = "executable",
-      command = "gdb",
-      args = { "-i", "dap" },
-    }
+    -- dap.adapters.rust = {
+    --   type = "executable",
+    --   command = "/usr/bin/lldb-vscode",
+    --   name = "lldb",
+    -- }
 
-    dap.configurations.c = {
-      {
-        name = "Launch",
-        type = "gdb",
-        request = "launch",
-        program = function()
-          return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-        end,
-        cwd = "${workspaceFolder}",
-      },
-    }
+    -- dap.configurations.rust = {
+    --   {
+    --     name = "Launch",
+    --     type = "lldb",
+    --     request = "launch",
+    --     program = function()
+    --       return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+    --     end,
+    --     cwd = "${workspaceFolder}",
+    --     stopOnEntry = false,
+    --     args = {},
+    --   },
+    -- }
 
-    -- Add dap configurations based on your language/adapter settings
+    -- dap.configurations.rust = {
+    --   {
+    --     name = "Launch file",
+    --     type = "cppdbg",
+    --     request = "launch",
+    --     program = function()
+    --       return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+    --     end,
+    --     stopOnEntry = false,
+    --   },
+    -- }
+
+    -- require("dapui").setup({}) -- Add dap configurations based on your language/adapter settings
     -- https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation
     -- dap.configurations.xxxxxxxxxx = {
     --   {
