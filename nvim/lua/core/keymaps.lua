@@ -3,6 +3,9 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap
 
+-- Oil.nvim
+keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
 -- General keymaps
 --keymap.set("i", "jk", "<ESC>") -- exit insert mode with jk 
 --keymap.set("i", "ii", "<ESC>") -- exit insert mode with ii
