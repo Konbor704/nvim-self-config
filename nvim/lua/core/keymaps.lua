@@ -1,10 +1,17 @@
--- Set leader key to space
+-- jet leader key to space
 vim.g.mapleader = " "
 
 local keymap = vim.keymap
 
 -- Oil.nvim
 keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+-- Nabla
+keymap.set("n", "<leader>pp",require("nabla").popup)
+keymap.set("n", "<leader>pt", require("nabla").toggle_virt)
+
+-- Terminal
+keymap.set("n", "<F6>", ":ToggleTerm<CR>", {desc = "Toggle Terminal"})
 
 -- General keymaps
 --keymap.set("i", "jk", "<ESC>") -- exit insert mode with jk 

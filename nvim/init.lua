@@ -26,3 +26,8 @@ require("lazy").setup("plugins", {
 -- These modules are not loaded by lazy
 require("core.vim-options")
 require("core.keymaps")
+
+package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?/init.lua;"
+package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?.lua;"
+
+

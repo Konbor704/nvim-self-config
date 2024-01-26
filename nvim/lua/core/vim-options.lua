@@ -6,6 +6,7 @@ vim.opt.splitright = true
 
 vim.opt.virtualedit = "block"
 
+vim.opt.textwidth = 90
 vim.opt.expandtab = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
@@ -31,7 +32,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
 -- Markdown specific settings
-vim.opt.wrap = true -- Wrap text
+vim.opt.wrap = false -- Wrap text
 vim.opt.breakindent = true -- Match indent on line break
 vim.opt.linebreak = true -- Line break on whole words
 vim.opt.spelllang = {'pl', 'en_gb'}
