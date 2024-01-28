@@ -18,6 +18,7 @@ return {
 				["core.concealer"] = {
 					config = {
 						icon_preset = "basic",
+            markup_preset = "brave",
 						init_open_folds = "auto",
 					},
 				}, -- Adds pretty icons to your documents

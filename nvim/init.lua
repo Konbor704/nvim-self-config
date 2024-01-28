@@ -1,3 +1,15 @@
+
+-- Example for configuring Neovim to load user-installed installed Lua rocks:
+package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?/init.lua;"
+package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?.lua;"
+
+local ok, err = pcall(require, "magick")
+
+if ok then
+else
+  print("that failed")
+end
+
 -- Bootstrap lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -27,7 +39,15 @@ require("lazy").setup("plugins", {
 require("core.vim-options")
 require("core.keymaps")
 
-package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?/init.lua;"
-package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?.lua;"
 
+local api = vim.api
+
+api.nvim_create_augroup("onenter", { clear = true })
+api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+  group = "onenter",
+  pattern = "*.norg",
+  callback = function()
+    require("nabla").enable_virt()
+  end,
+})
 
