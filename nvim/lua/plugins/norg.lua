@@ -19,7 +19,7 @@ return {
 					config = {
 						icon_preset = "basic",
             markup_preset = "brave",
-						init_open_folds = "auto",
+						init_open_folds = "never",
 					},
 				}, -- Adds pretty icons to your documents
 				["core.dirman"] = { -- Manages Neorg workspaces
