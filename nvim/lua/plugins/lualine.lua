@@ -10,7 +10,8 @@ return {
 	},
 	opts = {
 		options = {
-			theme = "codedark", -- lualine theme
+			theme = "auto",
+        -- "codedark", for kanganawa
 		},
 		sections = {
 			lualine_c = {
