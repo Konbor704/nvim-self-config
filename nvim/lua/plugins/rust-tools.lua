@@ -7,7 +7,4 @@ return {
     "mfussenegger/nvim-dap",
   },
   ft = { "rust" },
-  init = function()
-    require('dap').continue()
-  end,
 }

@@ -3,3 +3,5 @@ struct
 f32
 ECS
 Ecs
+fn
+mut
