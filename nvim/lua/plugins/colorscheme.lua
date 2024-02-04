@@ -19,7 +19,7 @@ return {
       no_bold = false,
       no_underline = false,
     })
-    -- NOTE: tokyonight
+    -- TOKYONIGHT
     -- opts = {
     -- background = {
     --   dark = "wave",
