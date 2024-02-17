@@ -762,8 +762,9 @@ $env.config = {
 }
 
 use ~/.cache/starship/init.nu
+source ~/.zoxide.nu
 
 alias c = clear
-alias z = zellij
+alias ze = zellij
 alias e = exit
 alias vi = nvim
