@@ -6,8 +6,6 @@ vim.opt.splitright = true
 
 vim.opt.virtualedit = "block"
 
-vim.opt.textwidth = 80
-vim.opt.colorcolumn = '80'
 vim.opt.expandtab = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2

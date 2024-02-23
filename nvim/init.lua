@@ -1,4 +1,3 @@
-
 -- Example for configuring Neovim to load user-installed installed Lua rocks:
 package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?/init.lua;"
 package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?.lua;"
@@ -29,7 +28,7 @@ vim.g.mapleader = " "
 
 -- Initialize lazy with dynamic loading of anything in the plugins directory
 require("lazy").setup("plugins", {
-   change_detection = {
+  change_detection = {
     enabled = true, -- automatically check for config file changes and reload the ui
     notify = false, -- turn off notifications whenever plugin changes are made
   },
@@ -38,7 +37,6 @@ require("lazy").setup("plugins", {
 -- These modules are not loaded by lazy
 require("core.vim-options")
 require("core.keymaps")
-
 
 local api = vim.api
 
@@ -50,4 +48,10 @@ api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     require("nabla").enable_virt()
   end,
 })
-
+api.nvim_create_autocmd("BufWinEnter", {
+  pattern = { "*.norg" },
+  callback = function()
+    vim.opt.textwidth = 80
+    vim.opt.colorcolumn = "+1"
+  end,
+})
