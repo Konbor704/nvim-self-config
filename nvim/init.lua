@@ -9,6 +9,7 @@ else
   print("that failed")
 end
 
+local api = vim.api
 -- Bootstrap lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -26,6 +27,8 @@ vim.opt.rtp:prepend(lazypath)
 -- This has to be set before initializing lazy
 vim.g.mapleader = " "
 
+
+
 -- Initialize lazy with dynamic loading of anything in the plugins directory
 require("lazy").setup("plugins", {
   change_detection = {
@@ -38,7 +41,6 @@ require("lazy").setup("plugins", {
 require("core.vim-options")
 require("core.keymaps")
 
-local api = vim.api
 
 api.nvim_create_augroup("onenter", { clear = true })
 api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
@@ -49,7 +51,7 @@ api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
   end,
 })
 api.nvim_create_autocmd("BufWinEnter", {
-  pattern = { "*.norg" },
+  pattern = { "*.norg", "*.md" },
   callback = function()
     vim.opt.textwidth = 80
     vim.opt.colorcolumn = "+1"

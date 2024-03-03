@@ -1,6 +1,8 @@
 vim.opt.number = true
 vim.opt.relativenumber = false
 
+vim.opt.conceallevel = 2
+
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
