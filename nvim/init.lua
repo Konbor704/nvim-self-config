@@ -221,6 +221,9 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagn
 
 -- FIX: Plugins keymaps
 
+-- Colorscheme
+vim.keymap.set("n", "<leader>t", ":Telescope colorscheme<CR>", { desc = "Themes" })
+
 -- Undotree
 vim.keymap.set("n", "<leader><F5>", vim.cmd.UndotreeToggle, { desc = "Undotree Toggle" })
 
@@ -380,6 +383,7 @@ require("lazy").setup({
 				["<leader>w"] = { name = "[W]orkspace", _ = "which_key_ignore" },
 				["<leader>z"] = { name = "[Z]en", _ = "which_key_ignore" },
 				["<leader>x"] = { name = "Trouble", _ = "which_key_ignore" },
+				["<leader>t"] = { name = "[T]hemes", _ = "which_key_ignore" },
 			})
 		end,
 	},
@@ -448,7 +452,9 @@ require("lazy").setup({
 				--     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
 				--   },
 				-- },
-				-- pickers = {}
+				pickers = {
+					colorscheme = {},
+				},
 				extensions = {
 					["ui-select"] = {
 						require("telescope.themes").get_dropdown(),
@@ -750,13 +756,25 @@ require("lazy").setup({
 					return "make install_jsregexp"
 				end)(),
 			},
+			{
+				"saecki/crates.nvim",
+				event = { "BufRead Cargo.toml" },
+				config = function()
+					require("crates").setup()
+				end,
+			},
+			"micangl/cmp-vimtex",
 			"saadparwaiz1/cmp_luasnip",
+			"jc-doyle/cmp-pandoc-references",
+			"epwalsh/obsidian.nvim",
+			"nvim-neorg/neorg",
 
 			-- Adds other completion capabilities.
 			--  nvim-cmp does not ship with all sources by default. They are split
 			--  into multiple repos for maintenance purposes.
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-nvim-lsp-signature-help",
 
 			-- If you want to add a bunch of pre-configured snippets,
 			--    you can use this plugin to help you. It even has snippets
@@ -821,6 +839,12 @@ require("lazy").setup({
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
 					{ name = "path" },
+					{ name = "vimtex" },
+					{ name = "crates" },
+					{ name = "pandoc_references" },
+					{ name = "obsidian" },
+					{ name = "neorg" },
+					{ name = "nvim_lsp_signature_help" },
 				},
 			})
 		end,
@@ -943,6 +967,9 @@ require("lazy").setup({
 	--    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
 	{ import = "custom.plugins" },
 })
+
+local theme = require("last-color").recall() or "kanagawa"
+vim.cmd(("colorscheme %s"):format(theme))
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
