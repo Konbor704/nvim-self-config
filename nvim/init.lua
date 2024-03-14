@@ -640,6 +640,7 @@ require("lazy").setup({
 			--  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
 			--  - settings (table): Override the default settings passed when initializing the server.
 			--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
+
 			local servers = {
 				clangd = {},
 				asm_lsp = {},
@@ -653,7 +654,6 @@ require("lazy").setup({
 				--
 				-- But for many setups, the LSP (`tsserver`) will work just fine
 				-- tsserver = {},
-				--
 
 				lua_ls = {
 					-- cmd = {...},
@@ -701,6 +701,7 @@ require("lazy").setup({
 				"marksman",
 				"asm-lsp",
 				"asmfmt",
+				"ltex-ls",
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
@@ -763,11 +764,11 @@ require("lazy").setup({
 					require("crates").setup()
 				end,
 			},
-			"micangl/cmp-vimtex",
 			"saadparwaiz1/cmp_luasnip",
 			"jc-doyle/cmp-pandoc-references",
 			"epwalsh/obsidian.nvim",
 			"nvim-neorg/neorg",
+			"kdheepak/cmp-latex-symbols",
 
 			-- Adds other completion capabilities.
 			--  nvim-cmp does not ship with all sources by default. They are split
@@ -839,12 +840,17 @@ require("lazy").setup({
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
 					{ name = "path" },
-					{ name = "vimtex" },
 					{ name = "crates" },
 					{ name = "pandoc_references" },
 					{ name = "obsidian" },
 					{ name = "neorg" },
 					{ name = "nvim_lsp_signature_help" },
+					{
+						name = "latex_symbols",
+						option = {
+							strategy = 0, -- mixed
+						},
+					},
 				},
 			})
 		end,
